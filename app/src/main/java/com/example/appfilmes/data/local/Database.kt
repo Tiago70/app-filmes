@@ -129,6 +129,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
+
             // roda numa thread separada pois não pode bloquear a thread principal
             CoroutineScope(Dispatchers.IO).launch {
                 INSTANCE?.let { database ->

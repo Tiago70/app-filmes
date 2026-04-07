@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-
-//    id("com.google.devtools.ksp") // para usar o ksp
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -12,6 +11,7 @@ android {
             minorApiLevel = 1
         }
     }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.appfilmes"
@@ -39,6 +39,8 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+        viewBinding = true
     }
 }
 
@@ -51,6 +53,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,9 +67,11 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Room — cache local dos filmes
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-//    ksp("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+
+    // Ksp - usado para gerar código do room
+    ksp(libs.androidx.room.compiler)
 
     // Coil — carregamento de imagens
     implementation("io.coil-kt:coil:2.6.0")

@@ -14,46 +14,44 @@ object SeedData {
         GenreEntity(id = 14,  name = "Fantasia"),
         GenreEntity(id = 27,  name = "Terror"),
         GenreEntity(id = 878, name = "Ficção científica"),
-        GenreEntity(id = 53,  name = "Thriller")
     )
 
     val movies = listOf(
         MovieEntity(
             id = 1,
-            title = "Inception",
-            overview = "Um ladrão que rouba segredos corporativos através do uso da tecnologia de compartilhamento de sonhos.",
-            posterPath = "inception.jpg",   // nome do arquivo em res/drawable
-            releaseYear = "2010",
-            runtimeMinutes = 148,
-            category = "popular"
+            title = "Super Mario Galaxy: O Filme",
+            overview = "Depois de salvar o Reino dos Cogumelos, Mario e seus amigos se encontram em uma missão intergaláctica para deter um novo vilão ameaçador.",
+            posterPath = "mairo.webp",   // nome do arquivo em res/drawable
+            releaseYear = "2026",
+            runtimeMinutes = 100,
+            category = "lançamento"
         ),
         MovieEntity(
             id = 2,
-            title = "Interstellar",
-            overview = "Uma equipe de exploradores viaja através de um buraco de minhoca no espaço.",
-            posterPath = "interstellar.jpg",
-            releaseYear = "2014",
-            runtimeMinutes = 169,
-            category = "popular"
+            title = "Missão refugio",
+            overview = "Um ex-assassino de aluguel, agora um homem recluso numa ilha costeira remota, salva uma garota de uma tempestade terrível, colocando os dois na mira do perigo. Forçado a sair da aposentadoria e do isolamento, o homem é obrigado a enfrentar seu passado perigoso para proteger a menina enquanto tenta sobreviver uma jornada tensa repleta de perigos e redenção.",
+            posterPath = "missao.webp",
+            releaseYear = "2026",
+            runtimeMinutes = 100,
+            category = "lançamento"
         ),
         MovieEntity(
             id = 3,
-            title = "O Auto da Compadecida",
-            overview = "As aventuras de João Grilo e Chicó, dois nordestinos pobres que vivem de trapaças.",
-            posterPath = "auto_compadecida.jpg",
-            releaseYear = "2000",
+            title = "Caminhos do Crime",
+            overview = "Um ladrão enigmático realiza assaltos de alto risco ao longo da icônica rodovia 101. Quando ele mira o golpe de sua vida — na esperança de que este seja seu último trabalho —, seu caminho cruza com o de uma corretora de seguros desiludida, forçando os dois a colaborar. Determinado a desvendar o caso, um detetive implacável se aproxima da operação.",
+            posterPath = "caminhos.webp",
+            releaseYear = "2026",
             runtimeMinutes = 104,
-            category = "dubbed"
+            category = "lançamento"
         )
-        // adicione quantos quiser seguindo o mesmo padrão
     )
 
     val crossRefs = listOf(
-        MovieGenreCrossRef(movieId = 1, genreId = 878),  // Inception → Ficção científica
-        MovieGenreCrossRef(movieId = 1, genreId = 28),   // Inception → Ação
-        MovieGenreCrossRef(movieId = 2, genreId = 878),  // Interstellar → Ficção científica
-        MovieGenreCrossRef(movieId = 2, genreId = 18),   // Interstellar → Drama
-        MovieGenreCrossRef(movieId = 3, genreId = 35),   // Auto da Compadecida → Comédia
-        MovieGenreCrossRef(movieId = 3, genreId = 18)    // Auto da Compadecida → Drama
+        MovieGenreCrossRef(movieId = 1, genreId = 16),
+        MovieGenreCrossRef(movieId = 1, genreId = 12),
+        MovieGenreCrossRef(movieId = 2, genreId = 28),
+        MovieGenreCrossRef(movieId = 2, genreId = 80),
+        MovieGenreCrossRef(movieId = 3, genreId = 28),
+        MovieGenreCrossRef(movieId = 3, genreId = 80)
     )
 }
