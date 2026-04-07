@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.AppFilmes" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.AppFilmes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#5071CC</item>
+        <item name="colorPrimaryDark">#0D1321</item>
+        <item name="colorAccent">#5071CC</item>
+    </style>
+
+
+<!-- C:/Users/tgame/AndroidStudioProjects/Appfilmes/app/src/main/res/values/themes.xml -->
+<!-- <style name="Theme.AppFilmes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#5071CC</item>
+        <item name="colorPrimaryDark">#0D1321</item>
+        <item name="colorAccent">#5071CC</item>
+    </style> -->
 </resources>

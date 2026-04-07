@@ -1,23 +1,22 @@
-package com.example.appfilmes
+package com.example.appfilmes.presentation.homescreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+
+import com.example.appfilmes.MainActivity
+import com.example.appfilmes.R
 import com.example.appfilmes.data.local.AppDatabase
 import com.example.appfilmes.data.repository.MovieRepository
 import com.example.appfilmes.databinding.ItemMovieBinding
+
 import com.example.appfilmes.databinding.MainActivityBinding
 import com.example.appfilmes.presentation.homescreen.HomeViewModel
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
+
     private lateinit var binding: MainActivityBinding
-    
-    private val repository by lazy { 
-        MovieRepository(AppDatabase.getInstance(applicationContext)) 
-    }
-    
-    private val viewModel by lazy { 
-        HomeViewModel(repository) 
-    }
+    private val repository = MovieRepository(AppDatabase.getInstance(this))
+    private var viewModel = HomeViewModel(repository)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +28,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.movies.observe(this) { movies ->
-            binding.moviesContainer.removeAllViews()
+            binding.moviesContainer.removeAllViews()  // limpa antes de adicionar
 
             for (movieWithGenres in movies) {
                 val movie = movieWithGenres.movie
 
+                // Infla o card usando o Binding do item
                 val itemBinding = ItemMovieBinding.inflate(
                     layoutInflater,
                     binding.moviesContainer,
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 itemBinding.txtTitulo.text = movie.title
 
                 val imageResId = resources.getIdentifier(
-                    movie.posterPath?.removeSuffix(".webp"),
+                    movie.posterPath?.removeSuffix(".jpg"),
                     "drawable",
                     packageName
                 )
@@ -51,9 +51,9 @@ class MainActivity : AppCompatActivity() {
                     itemBinding.imgPoster.setImageResource(imageResId)
                 }
 
-                binding.moviesContainer.addView(itemBinding.root)
+                // Adiciona a View raiz do binding no container principal
+                binding.moviesContainer.addView(itemBinding.root as android.view.View)
             }
         }
-        viewModel.loadMovies()
     }
 }

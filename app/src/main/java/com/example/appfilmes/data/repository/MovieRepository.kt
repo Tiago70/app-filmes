@@ -7,7 +7,7 @@ import com.example.appfilmes.data.local.MovieWithGenres
 class MovieRepository(private val db: AppDatabase) {
 
     suspend fun getPopularMovies(): List<MovieWithGenres> =
-        db.movieDao().getMoviesWithGenresByCategory("popular")
+        db.movieDao().getMoviesWithGenresByCategory("lançamento")
 
     suspend fun getUpcomingMovies(): List<MovieWithGenres> =
         db.movieDao().getMoviesWithGenresByCategory("upcoming")
